@@ -1,4 +1,6 @@
 # software-factory-demo
+
+[![Join the chat at https://gitter.im/wemanity/software-factory-demo](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wemanity/software-factory-demo?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Démo software factory
 
 ## Composants
