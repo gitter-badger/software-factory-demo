@@ -19,6 +19,9 @@ Vagrant.configure(2) do |config|
     v.cpus = 2
   end
 
+  # HTTP JENKINS
+  config.vm.network "forwarded_port", guest: 18080, host: 18080
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -73,4 +76,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  config.vm.provision "shell",
+    inline: "sudo git clone https://github.com/wemanity/usine-logicielle-orchestration.git /usr/src/usine-logicielle-orchestration && sudo puppet module install garethr/docker"
+  config.vm.provision "shell",
+    inline: "cd /usr/src/usine-logicielle-orchestration && sudo puppet apply site.pp --modulepath /etc/puppet/modules/ --hiera_config=hiera.yaml",
+    run: "always"
 end
